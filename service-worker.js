@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/areksoulahian/Shopping-Cart/precache-manifest.3f45eae9f6584af00957d13b38cb2346.js"
+  "/areksoulahian/Shopping-Cart/precache-manifest.34413f941cdccfe47287389b937c754a.js"
 );
 
 self.addEventListener('message', (event) => {

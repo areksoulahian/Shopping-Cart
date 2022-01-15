@@ -13,5 +13,5 @@
 - git add .
 - git commit -m "comment"
 - git branch -M main
-- git remote add origin https://github.com/areksoulahian/Shopping-Cart-React.git
+- git remote add origin https://github.com/areksoulahian/Shopping-Cart.git
 - git push -u origin main

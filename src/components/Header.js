@@ -11,7 +11,7 @@ export default function Header(props) {
         </a>
       </div>
 
-      <Router basename={window.location.pathname || ""}>
+      <Router basename={process.env.PUBLIC_URL}>
         <main>
           <nav>
             <a href="#/">Home</a>{" "}

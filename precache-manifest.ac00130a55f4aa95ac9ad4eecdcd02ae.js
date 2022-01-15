@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "85d652b162fef55aeaa35f2b4189231d",
+    "revision": "d8c9405c8d9142dcb562fb47bd5eaadd",
     "url": "/areksoulahian/Shopping-Cart/index.html"
   },
   {
-    "revision": "69d7a2e1afe5e3f8929a",
+    "revision": "43cf6a95ba277276389f",
     "url": "/areksoulahian/Shopping-Cart/static/css/main.af5ae7c1.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/areksoulahian/Shopping-Cart/static/js/3.04c3964a.chunk.js"
   },
   {
-    "revision": "69d7a2e1afe5e3f8929a",
-    "url": "/areksoulahian/Shopping-Cart/static/js/main.0aa88e70.chunk.js"
+    "revision": "43cf6a95ba277276389f",
+    "url": "/areksoulahian/Shopping-Cart/static/js/main.8535df4b.chunk.js"
   },
   {
     "revision": "a4e4311e1db7580544c5",

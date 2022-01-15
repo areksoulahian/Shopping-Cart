@@ -6,6 +6,7 @@
 - add to JSON file
 - - "homepage" : "(github url)
 - - add in "scripts" => "predeploy" : "npm run build", "deploy" : "gh-pages -d build",
+- npm run build
 - git init
 - git add .
 - git commit -m "comment"

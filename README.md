@@ -1,5 +1,7 @@
 # Simple Shopping Cart using ReactJS
 
+[link to app](https://areksoulahian.github.io/Shopping-Cart-React/)
+
 ### to deploy to github pages
 
 - in the project folder: npm install gh-pages --save-dev

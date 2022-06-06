@@ -1,6 +1,6 @@
 # Simple Shopping Cart using ReactJS
 
-[link to app](https://areksoulahian.github.io/Shopping-Cart/)
+[link to app](https://shopping-cart-arek.netlify.app/)
 
 ### to deploy to github pages
 

@@ -7,15 +7,18 @@ export default function Cart({ cartItems, onAdd, onRemove }) {
   if (cartItems.length === 0) {
     return (
       <main className="page">
-        <h2>Your Cart</h2>
-        <p className="empty-cart">Your cart is empty. Start shopping!</p>
+        <h2>Shopping Cart</h2>
+        <div className="empty-cart" style={{ background: "#fff", borderRadius: 12, border: "1px solid #e2e8f0", padding: "3rem" }}>
+          <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Your cart is empty</p>
+          <p style={{ fontSize: "0.875rem", color: "#94a3b8" }}>Add some products to get started.</p>
+        </div>
       </main>
     );
   }
 
   return (
     <main className="page">
-      <h2>Your Cart</h2>
+      <h2>Shopping Cart</h2>
       <div className="cart-page">
         <div className="cart-items">
           {cartItems.map((item) => (
@@ -23,7 +26,7 @@ export default function Cart({ cartItems, onAdd, onRemove }) {
               <img src={item.image} alt={item.name} />
               <div className="cart-item-info">
                 <h3>{item.name}</h3>
-                <p className="cart-item-price">${item.price.toFixed(2)}</p>
+                <p className="cart-item-price">${item.price.toFixed(2)} each</p>
               </div>
               <div className="cart-item-qty">
                 <button onClick={() => onRemove(item)} className="qty-btn">−</button>
@@ -39,7 +42,7 @@ export default function Cart({ cartItems, onAdd, onRemove }) {
         <div className="cart-summary">
           <h3>Order Summary</h3>
           <div className="summary-row">
-            <span>Items</span>
+            <span>Subtotal</span>
             <span>${itemPrice.toFixed(2)}</span>
           </div>
           <div className="summary-row">
@@ -54,7 +57,7 @@ export default function Cart({ cartItems, onAdd, onRemove }) {
             <span>Total</span>
             <span>${totalPrice.toFixed(2)}</span>
           </div>
-          <button className="checkout-btn" onClick={() => console.log("checking out")}>
+          <button className="checkout-btn">
             Proceed to Checkout
           </button>
         </div>

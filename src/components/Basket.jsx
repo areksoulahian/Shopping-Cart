@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Basket({ cartItems, onAdd, onRemove }) {
+  const navigate = useNavigate();
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const taxPrice = itemPrice * 0.09;
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
@@ -37,7 +40,7 @@ export default function Basket({ cartItems, onAdd, onRemove }) {
               <span>Total</span>
               <span>${totalPrice.toFixed(2)}</span>
             </div>
-            <button className="checkout-btn-sidebar">
+            <button className="checkout-btn-sidebar" onClick={() => navigate("/checkout")}>
               Checkout
             </button>
           </div>

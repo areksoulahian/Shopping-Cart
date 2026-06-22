@@ -1,8 +1,10 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
+import Checkout from "./pages/Checkout";
 import products from "./data";
 import { useState } from "react";
 
@@ -35,6 +37,13 @@ function App() {
     }
   };
 
+  const onClearCart = () => setCartItems([]);
+
+  const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+  const taxPrice = itemPrice * 0.09;
+  const shippingPrice = itemPrice > 2000 ? 0 : 50;
+  const totalPrice = itemPrice + taxPrice + shippingPrice;
+
   return (
     <HashRouter>
       <div className="App">
@@ -55,8 +64,18 @@ function App() {
               onRemove={onRemove}
             />
           } />
+          <Route path="/checkout" element={
+            cartItems.length > 0
+              ? <Checkout
+                  cartItems={cartItems}
+                  totalPrice={totalPrice}
+                  onClearCart={onClearCart}
+                />
+              : <Navigate to="/cart" />
+          } />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer />
       </div>
     </HashRouter>
   );

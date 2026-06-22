@@ -8,41 +8,45 @@ export default function Basket(props) {
   return (
     <aside className="block col-1">
       <h2>Cart Items</h2>
-      {cartItems.length === 0 && <div>Cart is empty</div>}
-      {cartItems.map((item) => (
-        <div key={item.id} className="row">
-          <div className="col-2">{item.name}</div>
-          <div className="col-2">
-            <button onClick={() => onAdd(item)} className="add">+</button>
-            <button onClick={() => onRemove(item)} className="remove">-</button>
-          </div>
-          <div className="col-2 text-right">
-            {item.qty} x ${item.price.toFixed(2)}
-          </div>
-        </div>
-      ))}
-      {cartItems.length !== 0 && (
+      {cartItems.length === 0 ? (
+        <div className="empty-cart">Cart is empty</div>
+      ) : (
         <>
-          <hr />
-          <div className="row">
-            <div className="col-2">Items Price</div>
-            <div className="col-1 text-right">${itemPrice.toFixed(2)}</div>
+          <div className="cart-items-list">
+            {cartItems.map((item) => (
+              <div key={item.id} className="cart-item-row">
+                <div className="cart-item-name">{item.name}</div>
+                <div className="cart-item-controls">
+                  <button onClick={() => onRemove(item)} className="btn-sm btn-remove">−</button>
+                  <span className="cart-item-qty">{item.qty}</span>
+                  <button onClick={() => onAdd(item)} className="btn-sm btn-add">+</button>
+                </div>
+                <div className="cart-item-subtotal">
+                  ${(item.price * item.qty).toFixed(2)}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="row">
-            <div className="col-2">Tax Price</div>
-            <div className="col-1 text-right">${taxPrice.toFixed(2)}</div>
-          </div>
-          <div className="row">
-            <div className="col-2">Shipping Price</div>
-            <div className="col-1 text-right">${shippingPrice.toFixed(2)}</div>
-          </div>
-          <div className="row">
-            <div className="col-2"><strong>Total Price</strong></div>
-            <div className="col-1 text-right"><strong>${totalPrice.toFixed(2)}</strong></div>
-          </div>
-          <hr />
-          <div className="row">
-            <button onClick={() => console.log("checking out")}>Check Out</button>
+          <div className="cart-summary-sidebar">
+            <div className="summary-line">
+              <span>Items</span>
+              <span>${itemPrice.toFixed(2)}</span>
+            </div>
+            <div className="summary-line">
+              <span>Tax (9%)</span>
+              <span>${taxPrice.toFixed(2)}</span>
+            </div>
+            <div className="summary-line">
+              <span>Shipping</span>
+              <span>{shippingPrice === 0 ? "Free" : `$${shippingPrice.toFixed(2)}`}</span>
+            </div>
+            <div className="summary-line total">
+              <span>Total</span>
+              <span>${totalPrice.toFixed(2)}</span>
+            </div>
+            <button className="checkout-btn-sidebar" onClick={() => console.log("checking out")}>
+              Check Out
+            </button>
           </div>
         </>
       )}

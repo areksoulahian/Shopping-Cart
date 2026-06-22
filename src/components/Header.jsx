@@ -1,26 +1,22 @@
-export default function Header(props) {
-  const { countCartItems } = props;
+import { NavLink } from "react-router-dom";
+
+export default function Header({ countCartItems }) {
   return (
-    <header className="row block center">
-      <div>
-        <a href="#/">
-          <h1>Arek's Shopping Cart</h1>
-        </a>
-      </div>
-      <nav>
-        <a href="#/">Home</a>{" "}
-        <a href="#/cart">
-          Cart{" "}
-          {countCartItems ? (
-            <button className="badge">{countCartItems}</button>
-          ) : (
-            ""
-          )}
-        </a>{" "}
-        <a href="#/about">About</a>
-      </nav>
-      <div>
-        <a href="#/signin">Sign-in</a>
+    <header className="header">
+      <div className="header-inner">
+        <NavLink to="/" className="logo">
+          <h1>Shopping Cart</h1>
+        </NavLink>
+        <nav className="nav">
+          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/cart">
+            Cart
+            {countCartItems > 0 && (
+              <span className="badge">{countCartItems}</span>
+            )}
+          </NavLink>
+          <NavLink to="/about">About</NavLink>
+        </nav>
       </div>
     </header>
   );

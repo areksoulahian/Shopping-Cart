@@ -1,6 +1,8 @@
-import Basket from "./components/Basket";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import About from "./pages/About";
 import products from "./data";
 import { useState } from "react";
 
@@ -34,17 +36,29 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header countCartItems={cartItems.length} />
-      <div className="row">
-        <Main onAdd={onAdd} products={products} />
-        <Basket
-          onAdd={onAdd}
-          onRemove={onRemove}
-          cartItems={cartItems}
-        />
+    <HashRouter>
+      <div className="App">
+        <Header countCartItems={cartItems.length} />
+        <Routes>
+          <Route path="/" element={
+            <Home
+              products={products}
+              onAdd={onAdd}
+              onRemove={onRemove}
+              cartItems={cartItems}
+            />
+          } />
+          <Route path="/cart" element={
+            <Cart
+              cartItems={cartItems}
+              onAdd={onAdd}
+              onRemove={onRemove}
+            />
+          } />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
-    </div>
+    </HashRouter>
   );
 }
 

@@ -2,7 +2,7 @@ import Basket from "./components/Basket";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import products from "./data";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
